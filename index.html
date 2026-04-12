@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ja" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>クックタイマー / Cook Timer</title>
+  <meta name="description" content="調理用マルチタイマー。複数同時実行、音声通知、ブラウザ通知、永続化、プリセット。" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Top bar -->
+  <header class="top-bar" role="banner">
+    <span class="app-title">🍳 クックタイマー</span>
+    <div class="top-controls">
+      <button id="btn-notif" class="btn btn-ghost" hidden>通知を許可</button>
+      <button id="btn-wakelock" class="btn btn-ghost">画面維持</button>
+      <button id="btn-sound" class="btn btn-ghost">🔔 音 ON</button>
+      <button id="btn-theme" class="btn btn-ghost">☀️ ライト</button>
+      <button id="btn-lang" class="btn btn-ghost">EN</button>
+    </div>
+  </header>
+
+  <main class="container" role="main">
+    <!-- Timer grid -->
+    <div id="timer-grid" class="timer-grid" aria-label="タイマー一覧"></div>
+
+    <!-- Add Timer button -->
+    <div class="add-row">
+      <button id="add-timer-btn" class="btn btn-add">+ タイマーを追加</button>
+    </div>
+  </main>
+
+  <!-- Add Timer Modal -->
+  <div id="add-modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
+    <div class="modal">
+      <h2 id="modal-title" class="modal-title">タイマーを追加</h2>
+
+      <div class="form-group">
+        <label for="input-label" id="lbl-label">ラベル</label>
+        <input
+          type="text"
+          id="input-label"
+          class="input"
+          placeholder="パスタ、ソースなど"
+          maxlength="30"
+          autocomplete="off"
+        />
+      </div>
+
+      <div class="form-group">
+        <span id="lbl-time" class="form-label">時間</span>
+        <div class="time-inputs">
+          <label class="time-unit">
+            <input type="number" id="input-hours" class="input input-num" min="0" max="23" value="0" />
+            <span id="lbl-hours">時間</span>
+          </label>
+          <label class="time-unit">
+            <input type="number" id="input-minutes" class="input input-num" min="0" max="59" value="5" />
+            <span id="lbl-minutes">分</span>
+          </label>
+          <label class="time-unit">
+            <input type="number" id="input-seconds" class="input input-num" min="0" max="59" value="0" />
+            <span id="lbl-seconds">秒</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <span id="lbl-presets" class="form-label">プリセット</span>
+        <div id="preset-buttons" class="preset-buttons"></div>
+      </div>
+
+      <div class="modal-actions">
+        <button id="btn-modal-cancel" class="btn btn-secondary">キャンセル</button>
+        <button id="btn-modal-add" class="btn btn-primary">追加</button>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>
