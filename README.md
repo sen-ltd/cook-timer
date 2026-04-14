@@ -60,3 +60,10 @@ tests/
 ## License
 
 MIT © 2026 [SEN LLC (SEN 合同会社)](https://sen.ltd)
+
+<!-- sen-publish:links -->
+## Links
+
+- 🌐 Demo: https://sen.ltd/portfolio/cook-timer/
+- 📝 dev.to: https://dev.to/sendotltd/a-multi-timer-kitchen-app-that-doesnt-drift-when-the-tab-is-backgrounded-j21
+<!-- /sen-publish:links -->
